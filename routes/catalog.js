@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var debug = require('debug')('CatalogRouter');
+
 
 // Require controller modules.
 var book_controller = require('../controllers/bookController');
@@ -39,7 +41,9 @@ router.get('/books', book_controller.book_list);
 
 /// AUTHOR ROUTES ///
 
-console.log("\n I HAVE A BUG IN routes/catalog.js:45 \n");
+console.log("\n There's a BUG @ routes/catalog.js:45 \n");
+debug("Hey?!");
+// At the commented out code below :
 /*
 // GET request for creating Author. NOTE This must come before route for id (i.e. display author).
 router.get('/author/create', author_controller.author_create_get);

@@ -4,13 +4,18 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 //var log1 = require('node_modules/nodemon/lib/utils/log.js');
+var debug = require('debug')('app');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var catalogRouter = require('./routes/catalog');  //Import routes for "catalog" area of site
+var compression = require('compression');
+var helmet = require('helmet');
 
-//console.log("app Yo");
+debug("Yo!");
 var app = express();
+
+app.use(helmet());
 
 //Set up mongoose connection:
 var mongoose = require('mongoose');
@@ -30,6 +35,8 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+app.use(compression()); // compress all routes
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
