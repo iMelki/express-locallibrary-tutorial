@@ -41,10 +41,9 @@ router.get('/books', book_controller.book_list);
 
 /// AUTHOR ROUTES ///
 
-console.log("\n There's a BUG @ routes/catalog.js:45 \n");
-debug("Hey?!");
-// At the commented out code below :
-/*
+debug("\n There's a BUG @ routes/catalog.js:45-72 \n");
+// At the code below until /// GENRE ROUTES ///:
+
 // GET request for creating Author. NOTE This must come before route for id (i.e. display author).
 router.get('/author/create', author_controller.author_create_get);
 
@@ -68,7 +67,7 @@ router.get('/author/:id', author_controller.author_detail);
 
 // GET request for list of all Authors.
 router.get('/authors', author_controller.author_list);
-*/
+
 /// GENRE ROUTES ///
 
 // GET request for creating a Genre. NOTE This must come before route that displays Genre (uses id).
